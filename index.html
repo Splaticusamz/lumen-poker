@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMEN — Your Table, Illuminated</title>
+  <meta name="description" content="A portable overhead poker projector that displays live table information — dealer position, blinds, timers — through an app and optional control button.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='none' stroke='%230071e3' stroke-width='2'/><circle cx='16' cy='16' r='4' fill='%230071e3'/><line x1='16' y1='2' x2='16' y2='8' stroke='%230071e3' stroke-width='1.5'/></svg>">
+</head>
+<body>
+
+  <!-- Ambient grain overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="nav-logo-icon" width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="1.5"/>
+          <circle cx="14" cy="14" r="3" fill="currentColor"/>
+          <line x1="14" y1="2" x2="14" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="14" y1="21" x2="14" y2="26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="2" y1="14" x2="7" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="21" y1="14" x2="26" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span>LUMEN</span>
+      </a>
+      <div class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#app">App</a>
+        <a href="#specs">Specs</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#reserve" class="nav-cta">Reserve Yours</a>
+        <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <!-- Background image -->
+    <div class="hero-image-bg"></div>
+    <div class="hero-image-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        Coming 2026
+      </div>
+      <div class="hero-glass-box">
+        <h1 class="hero-title">
+          <span class="hero-title-line">LUMEN</span>
+        </h1>
+        <p class="hero-subtitle">Your table, illuminated.</p>
+        <p class="hero-desc">A portable overhead projector that turns any poker table into a smart table. Dealer, blinds, timers — on the felt.</p>
+        <div class="hero-ctas">
+          <a href="#reserve" class="btn-primary">
+            <span>Reserve Yours</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#features" class="btn-ghost">Learn more</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" id="scrollHint">
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Marquee ticker -->
+  <div class="ticker">
+    <div class="ticker-track">
+      <span>Dealer Position</span><span class="ticker-dot"></span>
+      <span>Blind Levels</span><span class="ticker-dot"></span>
+      <span>Timer Countdown</span><span class="ticker-dot"></span>
+      <span>Seat Labels</span><span class="ticker-dot"></span>
+      <span>Ante Display</span><span class="ticker-dot"></span>
+      <span>Break Alerts</span><span class="ticker-dot"></span>
+      <span>Level Indicator</span><span class="ticker-dot"></span>
+      <span>Tournament Status</span><span class="ticker-dot"></span>
+      <span>Dealer Position</span><span class="ticker-dot"></span>
+      <span>Blind Levels</span><span class="ticker-dot"></span>
+      <span>Timer Countdown</span><span class="ticker-dot"></span>
+      <span>Seat Labels</span><span class="ticker-dot"></span>
+      <span>Ante Display</span><span class="ticker-dot"></span>
+      <span>Break Alerts</span><span class="ticker-dot"></span>
+      <span>Level Indicator</span><span class="ticker-dot"></span>
+      <span>Tournament Status</span><span class="ticker-dot"></span>
+    </div>
+  </div>
+
+  <!-- Problem Statement -->
+  <section class="section section-dark" id="problem">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-heading-dark reveal">Home poker deserves<br><span class="gradient-text">better than this.</span></h2>
+        <div class="problem-grid reveal">
+          <div class="problem-item">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,80,80,0.6)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <p>Lost dealer buttons</p>
+          </div>
+          <div class="problem-item">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,80,80,0.6)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <p>Forgotten blind levels</p>
+          </div>
+          <div class="problem-item">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,80,80,0.6)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <p>Timer apps nobody sees</p>
+          </div>
+          <div class="problem-item">
+            <div class="problem-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/><path d="M8 8l8 8M16 8l-8 8" stroke="rgba(255,80,80,0.6)" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </div>
+            <p>Phones propped on chip stacks</p>
+          </div>
+        </div>
+        <p class="problem-resolution reveal">LUMEN replaces all of it with a single, elegant projection.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section section-darker" id="features">
+    <div class="container">
+      <p class="section-eyebrow reveal">Features</p>
+      <h2 class="section-heading-dark reveal">Everything projected.<br>Nothing in the way.</h2>
+
+      <div class="feature-grid">
+        <div class="feature-card reveal">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="15" stroke="rgba(0,180,255,0.4)" stroke-width="1"/>
+              <circle cx="20" cy="20" r="7" fill="rgba(0,180,255,0.1)" stroke="rgba(0,200,255,0.8)" stroke-width="1.5"/>
+              <text x="20" y="24" text-anchor="middle" fill="rgba(0,220,255,1)" font-size="10" font-family="Inter" font-weight="700">D</text>
+            </svg>
+          </div>
+          <h3 class="feature-title">Dealer Button</h3>
+          <p class="feature-desc">Projected marker that rotates automatically or manually. Nothing physical to lose or argue about.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="6" y="10" width="28" height="20" rx="4" stroke="rgba(0,180,255,0.4)" stroke-width="1"/>
+              <text x="20" y="19" text-anchor="middle" fill="rgba(0,220,255,1)" font-size="7" font-family="Inter" font-weight="700">200</text>
+              <line x1="10" y1="22" x2="30" y2="22" stroke="rgba(0,180,255,0.25)" stroke-width="0.5"/>
+              <text x="20" y="28" text-anchor="middle" fill="rgba(0,200,255,0.7)" font-size="7" font-family="Inter" font-weight="600">400</text>
+            </svg>
+          </div>
+          <h3 class="feature-title">Blind Levels</h3>
+          <p class="feature-desc">SB, BB, and ante amounts displayed center-table where every player can see them at a glance.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <circle cx="20" cy="20" r="14" stroke="rgba(0,180,255,0.4)" stroke-width="1"/>
+              <line x1="20" y1="10" x2="20" y2="20" stroke="rgba(0,220,255,1)" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="20" y1="20" x2="28" y2="24" stroke="rgba(0,200,255,0.7)" stroke-width="1.2" stroke-linecap="round"/>
+              <circle cx="20" cy="20" r="2" fill="rgba(0,220,255,1)"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Blind Timer</h3>
+          <p class="feature-desc">Countdown projected right on the felt. No more "how much time left?" — everyone sees the clock.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <ellipse cx="20" cy="24" rx="16" ry="10" stroke="rgba(0,180,255,0.4)" stroke-width="1"/>
+              <circle cx="10" cy="15" r="4" stroke="rgba(0,200,255,0.5)" stroke-width="0.8"/><text x="10" y="17" text-anchor="middle" fill="rgba(0,200,255,0.7)" font-size="5" font-family="Inter">1</text>
+              <circle cx="20" cy="12" r="4" stroke="rgba(0,200,255,0.5)" stroke-width="0.8"/><text x="20" y="14" text-anchor="middle" fill="rgba(0,200,255,0.7)" font-size="5" font-family="Inter">2</text>
+              <circle cx="30" cy="15" r="4" stroke="rgba(0,200,255,0.5)" stroke-width="0.8"/><text x="30" y="17" text-anchor="middle" fill="rgba(0,200,255,0.7)" font-size="5" font-family="Inter">3</text>
+            </svg>
+          </div>
+          <h3 class="feature-title">Seat Labels</h3>
+          <p class="feature-desc">Player positions clearly marked. Seat 1 through 10, so everyone knows where they sit in the action.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="10" y="5" width="20" height="30" rx="5" stroke="rgba(0,180,255,0.4)" stroke-width="1"/>
+              <rect x="13" y="10" width="14" height="10" rx="2" fill="rgba(0,180,255,0.08)" stroke="rgba(0,200,255,0.4)" stroke-width="0.6"/>
+              <circle cx="20" cy="31" r="2" stroke="rgba(0,200,255,0.4)" stroke-width="0.6"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">App Control</h3>
+          <p class="feature-desc">Set up your tournament structure, control timers, rotate dealer, adjust blinds — all from your phone.</p>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card-glow"></div>
+          <div class="feature-icon-wrap">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+              <rect x="12" y="14" width="16" height="12" rx="6" stroke="rgba(0,180,255,0.4)" stroke-width="1"/>
+              <circle cx="20" cy="20" r="4" fill="rgba(0,180,255,0.1)" stroke="rgba(0,220,255,0.8)" stroke-width="1.2"/>
+              <line x1="20" y1="8" x2="20" y2="14" stroke="rgba(0,200,255,0.4)" stroke-width="0.8"/>
+              <circle cx="20" cy="7" r="2" stroke="rgba(0,200,255,0.4)" stroke-width="0.8"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Physical Remote</h3>
+          <p class="feature-desc">Optional wireless button — advance dealer, pause timer, start next hand — without touching your phone.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="section section-light" id="how-it-works">
+    <div class="container">
+      <p class="section-eyebrow-dark reveal">How It Works</p>
+      <h2 class="section-heading reveal">Three steps. Zero hassle.</h2>
+
+      <div class="steps-grid">
+        <div class="step reveal">
+          <div class="step-number-wrap">
+            <span class="step-number">01</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-visual">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="24" y="4" width="32" height="10" rx="5" stroke="#1d1d1f" stroke-width="1.5"/>
+              <line x1="40" y1="14" x2="40" y2="28" stroke="#1d1d1f" stroke-width="1.5"/>
+              <rect x="26" y="28" width="28" height="18" rx="4" stroke="#1d1d1f" stroke-width="1.5" fill="rgba(0,113,227,0.04)"/>
+              <circle cx="40" cy="37" r="4" stroke="#0071e3" stroke-width="1.2"/>
+              <!-- Light cone -->
+              <path d="M32 46 L20 70 L60 70 L48 46" fill="rgba(0,113,227,0.06)" stroke="rgba(0,113,227,0.15)" stroke-width="0.5"/>
+              <ellipse cx="40" cy="72" rx="22" ry="4" fill="rgba(0,113,227,0.08)" stroke="rgba(0,113,227,0.15)" stroke-width="0.5"/>
+            </svg>
+          </div>
+          <h3 class="step-title">Mount</h3>
+          <p class="step-desc">Clip LUMEN overhead — ceiling, light fixture, or included arm. Point it at the table.</p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number-wrap">
+            <span class="step-number">02</span>
+            <div class="step-line"></div>
+          </div>
+          <div class="step-visual">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <rect x="22" y="8" width="36" height="64" rx="8" stroke="#1d1d1f" stroke-width="1.5"/>
+              <rect x="26" y="18" width="28" height="38" rx="3" fill="rgba(0,113,227,0.04)" stroke="rgba(0,113,227,0.2)" stroke-width="0.6"/>
+              <circle cx="40" cy="66" r="3" fill="none" stroke="#1d1d1f" stroke-width="1"/>
+              <text x="40" y="32" text-anchor="middle" fill="#0071e3" font-size="7" font-family="Inter" font-weight="600">9 Players</text>
+              <text x="40" y="42" text-anchor="middle" fill="rgba(0,113,227,0.5)" font-size="6" font-family="Inter">100/200</text>
+              <rect x="30" y="46" width="20" height="5" rx="2.5" fill="rgba(0,113,227,0.15)"/>
+            </svg>
+          </div>
+          <h3 class="step-title">Configure</h3>
+          <p class="step-desc">Open the app. Set player count, blind structure, timer rules, and display preferences.</p>
+        </div>
+
+        <div class="step reveal">
+          <div class="step-number-wrap">
+            <span class="step-number">03</span>
+          </div>
+          <div class="step-visual">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+              <ellipse cx="40" cy="50" rx="34" ry="20" stroke="#1d1d1f" stroke-width="1.5" fill="rgba(0,113,227,0.02)"/>
+              <g filter="url(#stepGlow)">
+                <circle cx="40" cy="32" r="8" fill="rgba(0,113,227,0.08)" stroke="#0071e3" stroke-width="1.2"/>
+                <text x="40" y="36" text-anchor="middle" fill="#0071e3" font-size="9" font-family="Inter" font-weight="700">D</text>
+              </g>
+              <text x="40" y="52" text-anchor="middle" fill="rgba(0,113,227,0.5)" font-size="8" font-family="Inter" font-weight="600">200/400</text>
+              <text x="40" y="62" text-anchor="middle" fill="rgba(0,113,227,0.35)" font-size="7" font-family="Inter">11:42</text>
+            </svg>
+          </div>
+          <h3 class="step-title">Play</h3>
+          <p class="step-desc">Hit start. The table lights up. Dealer rotates, blinds escalate, timers count — all on the felt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Preview Section -->
+  <section class="section section-dark" id="app">
+    <div class="container">
+      <div class="app-section">
+        <div class="app-text">
+          <p class="section-eyebrow reveal">The App</p>
+          <h2 class="section-heading-dark reveal">Total control.<br><span class="gradient-text">Zero friction.</span></h2>
+          <p class="section-body-dark reveal">Your tournament command center. Set up blind structures, manage the clock, rotate the dealer, and customize exactly what appears on your table — all in real time.</p>
+          <ul class="app-features-list reveal">
+            <li><span class="list-check"></span>Custom blind structures and presets</li>
+            <li><span class="list-check"></span>Auto or manual dealer rotation</li>
+            <li><span class="list-check"></span>Pause, resume, adjust timers on the fly</li>
+            <li><span class="list-check"></span>Toggle projected elements per preference</li>
+            <li><span class="list-check"></span>Break countdown and level announcements</li>
+          </ul>
+        </div>
+        <div class="app-mockup reveal">
+          <div class="phone-outer-glow"></div>
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen">
+              <div class="app-ui">
+                <div class="app-ui-header">
+                  <span class="app-ui-title">LUMEN</span>
+                  <span class="app-ui-status"><span class="status-dot"></span>LIVE</span>
+                </div>
+                <div class="app-ui-timer">
+                  <div class="app-ui-level">LEVEL 4</div>
+                  <div class="app-ui-clock" id="appClock">11:42</div>
+                  <div class="app-ui-blinds">200 / 400</div>
+                  <div class="app-ui-ante">Ante: 50</div>
+                  <div class="app-ui-progress">
+                    <div class="app-ui-progress-bar"></div>
+                  </div>
+                </div>
+                <div class="app-ui-table-mini">
+                  <svg viewBox="0 0 200 120" fill="none">
+                    <ellipse cx="100" cy="60" rx="90" ry="50" stroke="rgba(0,113,227,0.3)" stroke-width="0.8" fill="rgba(0,113,227,0.03)"/>
+                    <circle cx="100" cy="13" r="8" fill="rgba(0,113,227,0.15)" stroke="#0071e3" stroke-width="1"/>
+                    <text x="100" y="16" text-anchor="middle" fill="#0071e3" font-size="7" font-family="Inter" font-weight="700">D</text>
+                    <circle cx="38" cy="35" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                    <circle cx="18" cy="65" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                    <circle cx="45" cy="100" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                    <circle cx="100" cy="108" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                    <circle cx="155" cy="100" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                    <circle cx="182" cy="65" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                    <circle cx="162" cy="35" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(0,113,227,0.25)" stroke-width="0.5"/>
+                  </svg>
+                </div>
+                <div class="app-ui-controls">
+                  <button class="app-btn">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><rect x="2" y="2" width="4" height="10" rx="1" fill="currentColor"/><rect x="8" y="2" width="4" height="10" rx="1" fill="currentColor"/></svg>
+                    Pause
+                  </button>
+                  <button class="app-btn app-btn-accent">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M4 2l7 5-7 5V2z" fill="currentColor"/></svg>
+                    Next Hand
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Floating badges around phone -->
+          <div class="floating-badge fb-1">Bluetooth 5.3</div>
+          <div class="floating-badge fb-2">Real-time Sync</div>
+          <div class="floating-badge fb-3">iOS + Android</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projection Demo on Felt -->
+  <section class="section section-felt" id="projection">
+    <div class="container">
+      <p class="section-eyebrow reveal">On The Felt</p>
+      <h2 class="section-heading-dark reveal">Sharp. Minimal.<br><span class="gradient-text">Unmissable.</span></h2>
+      <p class="section-body-dark text-center reveal" style="margin-bottom: 48px;">High-contrast projection designed for poker felt. Visible under room lighting, invisible to distraction.</p>
+
+      <div class="projection-demo reveal">
+        <div class="felt-surface">
+          <div class="felt-texture"></div>
+          <svg class="felt-projection" viewBox="0 0 800 500" fill="none">
+            <defs>
+              <filter id="projGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="blur"/>
+                <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+              </filter>
+            </defs>
+            <ellipse cx="400" cy="250" rx="350" ry="200" stroke="rgba(0,200,255,0.15)" stroke-width="0.8"/>
+            <ellipse cx="400" cy="250" rx="310" ry="175" stroke="rgba(0,200,255,0.08)" stroke-width="0.5" fill="rgba(0,200,255,0.015)"/>
+            <!-- Dealer -->
+            <g filter="url(#projGlow)" transform="translate(400, 58)">
+              <circle r="24" fill="rgba(0,200,255,0.08)" stroke="rgba(0,220,255,0.7)" stroke-width="1.5" class="dealer-pulse"/>
+              <text y="6" text-anchor="middle" fill="rgba(0,240,255,0.95)" font-size="16" font-family="Inter" font-weight="700">D</text>
+            </g>
+            <!-- SB -->
+            <g filter="url(#projGlow)" transform="translate(210, 90)">
+              <circle r="18" fill="rgba(0,200,255,0.05)" stroke="rgba(0,200,255,0.5)" stroke-width="1"/>
+              <text y="5" text-anchor="middle" fill="rgba(0,220,255,0.8)" font-size="11" font-family="Inter" font-weight="600">SB</text>
+            </g>
+            <!-- BB -->
+            <g filter="url(#projGlow)" transform="translate(115, 175)">
+              <circle r="18" fill="rgba(0,200,255,0.05)" stroke="rgba(0,200,255,0.5)" stroke-width="1"/>
+              <text y="5" text-anchor="middle" fill="rgba(0,220,255,0.8)" font-size="11" font-family="Inter" font-weight="600">BB</text>
+            </g>
+            <!-- Seats -->
+            <g transform="translate(590, 90)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">3</text></g>
+            <g transform="translate(685, 175)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">4</text></g>
+            <g transform="translate(710, 310)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">5</text></g>
+            <g transform="translate(620, 415)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">6</text></g>
+            <g transform="translate(400, 445)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">7</text></g>
+            <g transform="translate(180, 415)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">8</text></g>
+            <g transform="translate(90, 310)"><circle r="14" fill="rgba(0,200,255,0.03)" stroke="rgba(0,200,255,0.25)" stroke-width="0.7"/><text y="4" text-anchor="middle" fill="rgba(0,200,255,0.5)" font-size="9" font-family="Inter">9</text></g>
+            <!-- Center HUD -->
+            <g transform="translate(400, 230)">
+              <text y="-22" text-anchor="middle" fill="rgba(0,220,255,0.45)" font-size="12" font-family="Inter" font-weight="500" letter-spacing="4">LEVEL 4</text>
+              <text y="10" text-anchor="middle" fill="rgba(0,240,255,0.9)" font-size="32" font-family="Inter" font-weight="700">200 / 400</text>
+              <text y="30" text-anchor="middle" fill="rgba(0,220,255,0.4)" font-size="11" font-family="Inter">Ante 50</text>
+              <text y="58" text-anchor="middle" fill="rgba(0,220,255,0.6)" font-size="18" font-family="Inter" font-weight="500">11 : 42</text>
+              <rect x="-45" y="66" width="90" height="3" rx="1.5" fill="rgba(0,200,255,0.12)"/>
+              <rect x="-45" y="66" width="68" height="3" rx="1.5" fill="rgba(0,220,255,0.5)"/>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="section section-dark" id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item reveal">
+          <div class="stat-value" data-target="720">0</div>
+          <div class="stat-suffix">p</div>
+          <div class="stat-label">HD Projection</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-value" data-target="8">0</div>
+          <div class="stat-suffix">+ hrs</div>
+          <div class="stat-label">Battery Life</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-value" data-target="200">0</div>
+          <div class="stat-suffix"> ANSI</div>
+          <div class="stat-label">Lumens Brightness</div>
+        </div>
+        <div class="stat-item reveal">
+          <div class="stat-value" data-target="10">0</div>
+          <div class="stat-suffix"> seats</div>
+          <div class="stat-label">Max Players</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Specs Section -->
+  <section class="section section-darker" id="specs">
+    <div class="container">
+      <p class="section-eyebrow reveal">Specs</p>
+      <h2 class="section-heading-dark reveal">Built for the game.</h2>
+
+      <div class="specs-grid">
+        <div class="spec-item reveal">
+          <svg class="spec-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="6" width="22" height="16" rx="3" stroke="#0071e3" stroke-width="1.2"/><line x1="14" y1="22" x2="14" y2="25" stroke="#0071e3" stroke-width="1.2"/><line x1="9" y1="25" x2="19" y2="25" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div class="spec-label">Projection</div>
+          <div class="spec-value">720p HD</div>
+        </div>
+        <div class="spec-item reveal">
+          <svg class="spec-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 3v7l5 3" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round"/><circle cx="14" cy="14" r="11" stroke="#0071e3" stroke-width="1.2"/></svg>
+          <div class="spec-label">Battery</div>
+          <div class="spec-value">8+ Hours</div>
+        </div>
+        <div class="spec-item reveal">
+          <svg class="spec-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="6" y="6" width="16" height="16" rx="3" stroke="#0071e3" stroke-width="1.2"/><path d="M14 10v8M10 14h8" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round"/></svg>
+          <div class="spec-label">Size</div>
+          <div class="spec-value">4.2" x 4.2"</div>
+        </div>
+        <div class="spec-item reveal">
+          <svg class="spec-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M7 14c0-5 3-8 7-10 4 2 7 5 7 10" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round"/><path d="M10 14c0-3 2-5 4-7 2 2 4 4 4 7" stroke="rgba(0,113,227,0.4)" stroke-width="0.8"/><circle cx="14" cy="14" r="2" fill="#0071e3"/></svg>
+          <div class="spec-label">Connectivity</div>
+          <div class="spec-value">BT 5.3</div>
+        </div>
+        <div class="spec-item reveal">
+          <svg class="spec-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="5" y="5" width="18" height="18" rx="3" stroke="#0071e3" stroke-width="1.2"/><circle cx="14" cy="14" r="4" stroke="#0071e3" stroke-width="1.2"/><path d="M14 6v-2M14 24v-2M6 14H4M24 14h-2" stroke="rgba(0,113,227,0.4)" stroke-width="0.8" stroke-linecap="round"/></svg>
+          <div class="spec-label">Mount</div>
+          <div class="spec-value">Universal</div>
+        </div>
+        <div class="spec-item reveal">
+          <svg class="spec-icon" width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="11" stroke="#0071e3" stroke-width="1.2"/><path d="M8 20l4-6 3 3 4-8 3 5" stroke="#0071e3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div class="spec-label">Brightness</div>
+          <div class="spec-value">200 ANSI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="section section-light" id="usecases">
+    <div class="container text-center">
+      <p class="section-eyebrow-dark reveal">Who It's For</p>
+      <h2 class="section-heading reveal">Built for every game.</h2>
+      <div class="usecase-grid">
+        <div class="usecase-card reveal">
+          <div class="usecase-emoji">&#127968;</div>
+          <h3 class="usecase-title">Home Games</h3>
+          <p class="usecase-desc">Turn your dining table into a smart poker table. A setup that looks like it costs ten times more.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <div class="usecase-emoji">&#9824;&#65039;</div>
+          <h3 class="usecase-title">Poker Clubs</h3>
+          <p class="usecase-desc">Run multiple tables with consistent, professional displays. Every table runs itself once you hit start.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <div class="usecase-emoji">&#127909;</div>
+          <h3 class="usecase-title">Streamers</h3>
+          <p class="usecase-desc">A projected overlay that looks incredible on camera. Clean, minimal, purpose-built for streams.</p>
+        </div>
+        <div class="usecase-card reveal">
+          <div class="usecase-emoji">&#127942;</div>
+          <h3 class="usecase-title">Events</h3>
+          <p class="usecase-desc">Portable, professional, impressive. Tournament-grade experience anywhere — no permanent install.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reserve Section -->
+  <section class="section section-reserve" id="reserve">
+    <div class="reserve-bg">
+      <div class="reserve-glow-1"></div>
+      <div class="reserve-glow-2"></div>
+      <canvas class="reserve-particles" id="reserveParticles"></canvas>
+    </div>
+    <div class="container text-center" style="position:relative;z-index:2;">
+      <div class="reserve-badge reveal">
+        <span class="reserve-badge-dot"></span>
+        Limited Early Access
+      </div>
+      <h2 class="reserve-heading reveal">Be first at<br>the table.</h2>
+      <p class="section-body-dark reveal" style="max-width:440px;margin:0 auto;">Reserve your spot for early access pricing, product updates, and priority when we ship.</p>
+      <form class="reserve-form reveal" id="reserveForm">
+        <div class="form-row">
+          <input type="email" class="reserve-input" placeholder="you@email.com" required id="emailInput">
+          <button type="submit" class="btn-primary btn-reserve">
+            <span>Reserve</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <p class="reserve-note">No payment required. Just your interest.</p>
+      </form>
+      <div class="reserve-success" id="reserveSuccess">
+        <div class="success-check">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+            <circle cx="24" cy="24" r="20" stroke="#0071e3" stroke-width="2"/>
+            <path d="M14 24l7 7 13-13" stroke="#0071e3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <p class="success-text">You're on the list. We'll be in touch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+            <circle cx="14" cy="14" r="12" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <circle cx="14" cy="14" r="3" fill="rgba(255,255,255,0.3)"/>
+            <line x1="14" y1="2" x2="14" y2="7" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="14" y1="21" x2="14" y2="26" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span class="footer-name">LUMEN</span>
+        </div>
+        <div class="footer-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#specs">Specs</a>
+          <a href="#reserve">Reserve</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 LUMEN. A product in development.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
