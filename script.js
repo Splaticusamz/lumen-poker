@@ -1,5 +1,5 @@
 // ============================================
-// LUMEN — Elevated Interactive Scripts
+// TABLECAST — Elevated Interactive Scripts
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -68,8 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Scroll Effects ---
   const nav = document.getElementById('nav');
   const scrollHint = document.getElementById('scrollHint');
-  const heroContent = document.querySelector('.hero-content');
-  const heroGlows = document.querySelectorAll('.hero-glow');
+  const stickyCta = document.getElementById('stickyCta');
 
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
@@ -86,16 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollHint.style.opacity = Math.max(0, 1 - scrollY / 200);
     }
 
-    // Hero parallax
-    if (heroContent && window.innerWidth > 834) {
-      const maxScroll = window.innerHeight;
-      if (scrollY < maxScroll) {
-        const p = scrollY / maxScroll;
-        heroContent.style.transform = `translateY(${p * 60}px)`;
-        heroContent.style.opacity = 1 - p * 1.5;
+    // Show/hide sticky CTA bar (hidden at hero, visible once scrolled past)
+    if (stickyCta) {
+      if (scrollY > window.innerHeight * 0.5) {
+        stickyCta.classList.remove('hidden');
+      } else {
+        stickyCta.classList.add('hidden');
       }
     }
   }, { passive: true });
+
+  // Start hidden
+  if (stickyCta) stickyCta.classList.add('hidden');
 
   // --- App Clock Timer ---
   const appClock = document.getElementById('appClock');
