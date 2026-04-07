@@ -204,18 +204,53 @@ document.addEventListener('DOMContentLoaded', () => {
     reserveObserver.observe(particleCanvas);
   }
 
-  // --- Reserve Form ---
+  // --- Reserve Form (FormSubmit → sam@samzamor.com; first use requires confirming that inbox via FormSubmit’s email) ---
   const form = document.getElementById('reserveForm');
   const success = document.getElementById('reserveSuccess');
+  const reserveError = document.getElementById('reserveError');
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const email = document.getElementById('emailInput').value;
-      if (email) {
+      const emailInput = document.getElementById('emailInput');
+      const submitBtn = document.getElementById('reserveSubmitBtn');
+      const email = (emailInput && emailInput.value) ? emailInput.value.trim() : '';
+      if (!email || !submitBtn) return;
+
+      if (reserveError) {
+        reserveError.hidden = true;
+        reserveError.textContent = '';
+      }
+      submitBtn.disabled = true;
+      submitBtn.setAttribute('aria-busy', 'true');
+
+      const params = new URLSearchParams();
+      params.set('email', email);
+      params.set('_subject', 'TABLECAST — Early access reservation');
+      params.set('_replyto', email);
+      params.set('_captcha', 'false');
+
+      try {
+        const res = await fetch('https://formsubmit.co/ajax/sam@samzamor.com', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: params,
+        });
+        const data = await res.json().catch(() => ({}));
+        const ok = res.ok && (data.success === 'true' || data.success === true);
+        if (!ok) {
+          throw new Error(typeof data.message === 'string' ? data.message : 'Submit failed');
+        }
         form.style.display = 'none';
         success.classList.add('visible');
-        console.log('Reservation:', email);
+      } catch {
+        if (reserveError) {
+          reserveError.textContent = 'Something went wrong. Please try again in a moment.';
+          reserveError.hidden = false;
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute('aria-busy');
       }
     });
   }

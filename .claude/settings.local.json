@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(ls D:/src/poker-project/*.jpg D:/src/poker-project/*.png D:/src/poker-project/*.webp)",
+      "Bash(ls -la D:/src/poker-project/hero-bg.*)",
+      "Bash(ls -la D:/src/poker-project/hero*)",
+      "Bash(ls -la D:/src/poker-project/*.jpg D:/src/poker-project/*.png D:/src/poker-project/*.webp)",
+      "Bash(curl -L -o \"D:/src/poker-project/hero-bg.jpg\" \"https://images.unsplash.com/photo-1511193311914-0346f16efe90?w=1920&q=80\")",
+      "Bash(gh auth:*)",
+      "Bash(gh repo:*)"
+    ]
+  }
+}

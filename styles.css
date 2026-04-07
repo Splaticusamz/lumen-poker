@@ -471,6 +471,23 @@ a { color: inherit; text-decoration: none; }
 /* ============================================
    Problem Section
    ============================================ */
+.problem-photo-wrap {
+  margin: 40px auto 0;
+  max-width: 900px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+.problem-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+.problem-photo-wrap + .problem-grid {
+  margin-top: 32px;
+}
 .problem-grid {
   display: flex;
   justify-content: center;
@@ -1172,6 +1189,21 @@ a { color: inherit; text-decoration: none; }
 .btn-reserve {
   white-space: nowrap;
   padding: 14px 24px;
+}
+
+.reserve-honey {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.reserve-error {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 100, 100, 0.95);
 }
 
 .reserve-note {

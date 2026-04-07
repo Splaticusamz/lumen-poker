@@ -136,6 +136,9 @@
         <p class="problem-resolution reveal">TABLECAST replaces all of it with a single, elegant projection.</p>
       </div>
     </div>
+    <div class="problem-photo-wrap reveal">
+      <img src="tablecast-table-photo.png" alt="Friends playing around a poker table with a digital projection showing timer, dealer, and seat labels on the felt." class="problem-photo" loading="lazy" decoding="async">
+    </div>
   </section>
 
   <!-- Features Section -->
@@ -539,15 +542,18 @@
       </div>
       <h2 class="reserve-heading reveal">Be first at<br>the table.</h2>
       <p class="section-body-dark reveal" style="max-width:440px;margin:0 auto;">Reserve your spot for early access pricing, product updates, and priority when we ship.</p>
-      <form class="reserve-form reveal" id="reserveForm">
+      <form class="reserve-form reveal" id="reserveForm" method="post" action="https://formsubmit.co/sam@samzamor.com">
+        <input type="hidden" name="_subject" value="TABLECAST — Early access reservation">
+        <input type="text" name="_honey" class="reserve-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="form-row">
-          <input type="email" class="reserve-input" placeholder="you@email.com" required id="emailInput">
-          <button type="submit" class="btn-primary btn-reserve">
+          <input type="email" name="email" class="reserve-input" placeholder="you@email.com" required id="emailInput" autocomplete="email">
+          <button type="submit" class="btn-primary btn-reserve" id="reserveSubmitBtn">
             <span>Reserve</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </button>
         </div>
         <p class="reserve-note">No payment required. Just your interest.</p>
+        <p class="reserve-error" id="reserveError" role="alert" hidden></p>
       </form>
       <div class="reserve-success" id="reserveSuccess">
         <div class="success-check">
